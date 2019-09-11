@@ -20,7 +20,7 @@ public class Sintatico {
 
     public void analyze(List<Token> tokensList){
         symbols.startSymbolStack();
-        for (int i = tokensList.size(); i >= 0; i--){
+        for (int i = tokensList.size() - 1; i >= 0; i--){
             inputStack.empilhar(tokensList.get(i).tag);
         }
 
@@ -33,22 +33,23 @@ public class Sintatico {
                 if(stackTop == inputTop){
                     symbols.desempilhar();
                     inputStack.desempilhar();
+                    System.out.println("Desempilhado da matriz de simbolos" + stackTop + " desempilhado da matriz entrada " + inputTop);
                 }else{
-                    //Throws error
+                    System.out.println("erro");
                 }
 
             }else if (isNotTerminal(stackTop)){
                 if(isInParserMatrix(stackTop, inputTop)){
                     symbols.desempilhar();
                     int [] productionRules = getProductionRules(getParserMatrix(stackTop, inputTop));
-                    for (int i = productionRules.length; i >= 0; i--){
+                    for (int i = productionRules.length - 1; i >= 0; i--){
                         inputStack.empilhar(productionRules[i]);
                     }
                 }else {
-                    //throws error
+                    System.out.println("erro");
                 }
             }else {
-                //throws error
+                System.out.println("erro");
             }
 
 
