@@ -1,0 +1,15 @@
+program testeproc1;
+var x, y, z :integer;
+ procedure p;
+ var a :integer;
+ begin readln(a);
+ if a=x
+ then z:=x
+ else
+ begin z:=z-x; call p;
+ end;
+ begin z:=0;
+ readln(x,y);
+ if x >= y then call p else Z:=z+x+y;
+ writeln(z);
+ $
