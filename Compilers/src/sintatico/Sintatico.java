@@ -1,41 +1,47 @@
 package sintatico;
 
-import com.sun.org.apache.bcel.internal.classfile.ConstantString;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import lexico.Token;
-import util.Mensagem;
-import util.Pilha;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 public class Sintatico {
 
+    //Inicia a pilha de simbolos
     Pilha symbols = new Pilha();
+    //Inicia a pilha de entrada
     Pilha inputStack = new Pilha();
 
 
     public void analyze(List<Token> tokensList){
+        //Popula a pilha de simbolos com $ e inicio de arquivo
         symbols.startSymbolStack();
+
+        //Popula a pilha de entrada com os tokens gerados pelo analisador léxico
         for (int i = tokensList.size() - 1; i >= 0; i--){
             inputStack.empilhar(tokensList.get(i).tag);
         }
 
 
         do {
+            //Primeiro simbolo da pilha de simbolos
             int stackTop = symbols.exibeUltimoValor();
+            //Primeiro simbolo da pilha de entrada
             int inputTop = inputStack.exibeUltimoValor();
 
+            //Verifica se a pilha de simbolos está vazia ou se o primeiro simbolo é terminal
             if(symbols.pilhaVazia() || isTerminal(stackTop)){
+                //Caso true
+
                 if(stackTop == inputTop){
+                    System.out.println("Desempilhado da matriz de simbolos" + stackTop + " desempilhado da matriz entrada " + inputTop);
+
                     symbols.desempilhar();
                     inputStack.desempilhar();
-                    System.out.println("Desempilhado da matriz de simbolos" + stackTop + " desempilhado da matriz entrada " + inputTop);
                 }else{
-                    System.out.println("erro");
+                    System.out.println(stackTop);
+                    System.out.println(inputTop);
+                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
+                    break;
                 }
 
             }else if (isNotTerminal(stackTop)){
@@ -46,10 +52,16 @@ public class Sintatico {
                         inputStack.empilhar(productionRules[i]);
                     }
                 }else {
-                    System.out.println("erro");
+                    System.out.println(stackTop);
+                    System.out.println(inputTop);
+                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
+                    break;
                 }
             }else {
-                System.out.println("erro");
+                System.out.println(stackTop);
+                System.out.println(inputTop);
+                System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
+                break;
             }
 
 
