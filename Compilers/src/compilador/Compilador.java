@@ -2,7 +2,6 @@ package compilador;
 
 import lexico.Lexico;
 import sintatico.Sintatico;
-import util.Util;
 
 import java.io.IOException;
 

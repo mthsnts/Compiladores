@@ -1,7 +1,5 @@
 package lexico;
 
-import util.Util;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
