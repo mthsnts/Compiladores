@@ -3,21 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/lexico/Lexico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/lexico/Lexico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/lexico/Numero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/lexico/Numero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exemplo 1 - Funcional.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Exemplo 1 - Funcional.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Compilers_jar/Compilers.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Compilers_jar/Compilers.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compilers/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compilers/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/sintatico/Pilha.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sintatico/Pilha.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/sintatico/Sintatico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sintatico/Sintatico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexico/Lexico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexico/Lexico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexico/Numero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexico/Numero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sintatico/Pilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sintatico/Pilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sintatico/Sintatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sintatico/Sintatico.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +206,7 @@
       <workItem from="1568241241691" duration="8066000" />
       <workItem from="1568249614934" duration="1065000" />
       <workItem from="1568252146504" duration="12598000" />
-      <workItem from="1568300835514" duration="10895000" />
+      <workItem from="1568300835514" duration="11699000" />
     </task>
     <servers />
   </component>

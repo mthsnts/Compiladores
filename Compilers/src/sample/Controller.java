@@ -40,11 +40,7 @@ public class Controller {
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         fileChooser.getInitialFileName();
         Lexico lex = new Lexico(selectedFile.getName());
-
-        sintatico.Sintatico sintatico = new Sintatico();
-
-
-          this.analyze(lex.scanAll());
+         this.analyze(lex.scanAll());
 
     }
 

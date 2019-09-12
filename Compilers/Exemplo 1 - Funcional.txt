@@ -6,3 +6,4 @@ Begin
    b:= a+2;
    Writeln(b,a);
 end;
+$;
