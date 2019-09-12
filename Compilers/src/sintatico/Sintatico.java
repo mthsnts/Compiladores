@@ -1,7 +1,10 @@
 package sintatico;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import lexico.Token;
 
+import javax.swing.*;
+import java.util.Collections;
 import java.util.List;
 
 public class Sintatico {
@@ -13,58 +16,44 @@ public class Sintatico {
 
 
     public void analyze(List<Token> tokensList){
-        //Popula a pilha de simbolos com $ e inicio de arquivo
         symbols.startSymbolStack();
-
-        //Popula a pilha de entrada com os tokens gerados pelo analisador léxico
-        for (int i = tokensList.size() - 1; i >= 0; i--){
-            inputStack.empilhar(tokensList.get(i).tag);
-        }
-
+        populateInputStack(tokensList);
 
         do {
-            //Primeiro simbolo da pilha de simbolos
             int stackTop = symbols.exibeUltimoValor();
-            //Primeiro simbolo da pilha de entrada
             int inputTop = inputStack.exibeUltimoValor();
 
-            //Verifica se a pilha de simbolos está vazia ou se o primeiro simbolo é terminal
-            if(symbols.pilhaVazia() || isTerminal(stackTop)){
-                //Caso true
-
-                if(stackTop == inputTop){
-                    System.out.println("Desempilhado da matriz de simbolos" + stackTop + " desempilhado da matriz entrada " + inputTop);
-
-                    symbols.desempilhar();
-                    inputStack.desempilhar();
-                }else{
-                    System.out.println(stackTop);
-                    System.out.println(inputTop);
-                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
-                    break;
-                }
-
-            }else if (isNotTerminal(stackTop)){
-                if(isInParserMatrix(stackTop, inputTop)){
-                    symbols.desempilhar();
-                    int [] productionRules = getProductionRules(getParserMatrix(stackTop, inputTop));
-                    for (int i = productionRules.length - 1; i >= 0; i--){
-                        inputStack.empilhar(productionRules[i]);
-                    }
-                }else {
-                    System.out.println(stackTop);
-                    System.out.println(inputTop);
-                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
-                    break;
-                }
-            }else {
-                System.out.println(stackTop);
-                System.out.println(inputTop);
-                System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
-                break;
+            while (stackTop == Constants.EPSILON){
+                symbols.desempilhar();
+                stackTop = symbols.exibeUltimoValor();
             }
 
 
+            if(symbols.pilhaVazia() || isTerminal(stackTop)){
+                if(stackTop == inputTop){
+                    System.out.println("Desempilhado da matriz de simbolos " + stackTop + " desempilhado da matriz entrada " + inputTop);
+                    symbols.desempilhar();
+                    inputStack.desempilhar();
+                }else{
+                    System.out.println("M(X,a) => erro" + "X = " + stackTop + " a = " + inputTop);
+                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
+                    break;
+                }
+
+            }else {
+                if(isInParserMatrix(stackTop, inputTop)){
+                    symbols.desempilhar();
+                    int [] productionRules = getProductionRules(getParserMatrix(stackTop, inputTop));
+
+                    for (int i = productionRules.length - 1; i >= 0; i--){
+                        symbols.empilhar(productionRules[i]);
+                    }
+                }else {
+                    System.out.println("Não encontrado na matriz de parse " + stackTop + " - " + inputTop);
+                    System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
+                    break;
+                }
+            }
         } while (!symbols.pilhaVazia());
     }
 
@@ -88,6 +77,11 @@ public class Sintatico {
         return ParserConstants.PRODUCTIONS[matrixResult];
     }
 
+    public void populateInputStack(List<Token> tokensList){
+        for (int i = tokensList.size() - 1; i >= 0; i--){
+            inputStack.empilhar(tokensList.get(i).tag);
+        }
+    }
 
 
 }
