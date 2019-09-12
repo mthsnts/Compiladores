@@ -16,19 +16,6 @@ public class Pilha {
         return this.posicaoPilha == -1;
     }
 
-    public int tamanho() {
-        if (this.pilhaVazia())
-            return 0;
-
-        return this.posicaoPilha + 1;
-    }
-
-    public Integer exibeUltimoValor() {
-        if (this.pilhaVazia())
-            return null;
-
-        return this.pilha[this.posicaoPilha];
-    }
 
     public Integer desempilhar() {
         if (pilhaVazia())

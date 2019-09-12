@@ -23,9 +23,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws IOException {
-        Lexico lex = new Lexico("file2.txt");
-
-        Sintatico sintatico = new Sintatico();
-        sintatico.analyze(lex.scanAll());
+        launch(args);
     }
 }

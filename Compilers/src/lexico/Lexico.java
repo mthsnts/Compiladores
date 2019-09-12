@@ -2,6 +2,7 @@ package lexico;
 
 import sintatico.Constants;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -39,7 +40,7 @@ public class Lexico {
         reserve(new ConstantesTerminais("OR", Constants.t_OR, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("BEGIN", Constants.t_BEGIN, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("INTEGER", Constants.t_INTEGER, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("LIT", Codigo.LIT.value, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("LIT", Constants.t_LITERAL, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("IF", Constants.t_IF, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("THEN", Constants.t_THEN, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("ELSE", Constants.t_ELSE, PALAVRA_RESERVADA));
@@ -49,7 +50,7 @@ public class Lexico {
         reserve(new ConstantesTerminais("READLN", Constants.t_READLN, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("WRITELN", Constants.t_WRITELN, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("NOT", Constants.t_NOT, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("AND", Codigo.AND.value, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("AND", Constants.t_AND, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("REPEAT", Constants.t_REPEAT, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("UNTIL", Constants.t_UNTIL, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("FOR", Constants.t_FOR, PALAVRA_RESERVADA));
@@ -87,7 +88,8 @@ public class Lexico {
 
             tokens.add(tok);
 
-            if (tok.tag == Codigo.FIM_ARQUIVO.value || tok.tag == Codigo.CARACTERE_INVALIDO.value) break;
+            if (tok.tag == Codigo.FIM_ARQUIVO.value || tok.tag == Codigo.CARACTERE_INVALIDO.value) { break;
+            }
 
         } while (true);
 
@@ -95,10 +97,12 @@ public class Lexico {
     }
 
     private Token erroUnexEOF(String tipo) {
+        JOptionPane.showMessageDialog(null, new ConstantesTerminais("Final de arquivo inesperado (" + tipo + ") - Linha: " + line, Codigo.FIM_ARQUIVO_INESPERADO.value));
         return new ConstantesTerminais("Final de arquivo inesperado (" + tipo + ") - Linha: " + line, Codigo.FIM_ARQUIVO_INESPERADO.value);
     }
 
     private Token erroLexico() {
+        JOptionPane.showMessageDialog(null, new ConstantesTerminais("Caracter inválido - Linha: " + line, Codigo.CARACTERE_INVALIDO.value));
         return new ConstantesTerminais("Caracter inválido - Linha: " + line, Codigo.CARACTERE_INVALIDO.value);
     }
 
@@ -123,6 +127,7 @@ public class Lexico {
                 case '|':
                     if (readch('|')) return ConstantesTerminais.OR;
                     else return erroLexico();
+
                 case '.':
                     if (readch('.')) return ConstantesTerminais.PONTO;
                     else return erroLexico();

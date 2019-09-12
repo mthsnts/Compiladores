@@ -9,4 +9,4 @@ Else begin
 Z:=z-x;
 Call p;
 End;
-$
+$;

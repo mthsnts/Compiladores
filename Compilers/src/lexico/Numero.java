@@ -1,11 +1,13 @@
 package lexico;
 
+import sintatico.Constants;
+
 public class Numero extends Token {
     
     public final int value;
     
     public Numero(int value) {
-        super(Codigo.INTEGER.value, "Número");
+        super(Constants.t_INTEIRO, "Número");
         this.value = value;
     }
     

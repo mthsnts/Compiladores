@@ -1,0 +1,19 @@
+Program Exemplo4Funcional
+    Var
+        o :integer;
+	n :integer;
+	k :integer;
+    Begin
+        o := 0;
+	n := 0;
+	k := 1;
+        Wwhile n < 3 DO
+
+	Begin
+            Writeln(n);
+            n := n + 1;
+	    k := k + 2;
+            o := o + 0;
+    End;
+End;
+$;
