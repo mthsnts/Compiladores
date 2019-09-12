@@ -200,11 +200,11 @@ public class Lexico {
                 case '-':
                     readch();
                     return ConstantesTerminais.MENOS;
-                case '‘': {
+                case '"': {
                     String str = "";
                     str = str + ch;
                     readch();
-                    while (ch != '‘') {
+                    while (ch != '"') {
                         str = str + ch;
                         readch();
                         if (ch == Codigo.FIM_ARQUIVO.value) {

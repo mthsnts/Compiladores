@@ -10,8 +10,8 @@ Begin
    Writeln(D,A);
 
    If B > C Then Begin
-      Writeln("B: ", D);
+      Writeln( "B: ", D);
    End Else Begin
       Writeln("C: ", A);
-End.
+End;
 $;
