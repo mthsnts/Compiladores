@@ -1,8 +1,8 @@
 package sintatico;
 
 public interface Constants extends ScannerConstants, ParserConstants {
-    int EPSILON = 0;
-    int DOLLAR = 1;
+    int EPSILON  = 0;
+    int DOLLAR   = 1;
 
     int t_TOKEN_2 = 2; //"+"
     int t_TOKEN_3 = 3; //"-"
@@ -21,9 +21,9 @@ public interface Constants extends ScannerConstants, ParserConstants {
     int t_TOKEN_16 = 16; //"."
     int t_TOKEN_17 = 17; //"("
     int t_TOKEN_18 = 18; //")"
-    int t_id = 19;
+    int t_IDENT = 19;
     int t_INTEIRO = 20;
-    int t_LIT = 21;
+    int t_LITERAL = 21;
     int t_PROGRAM = 22;
     int t_CONST = 23;
     int t_VAR = 24;
@@ -48,6 +48,5 @@ public interface Constants extends ScannerConstants, ParserConstants {
     int t_FOR = 43;
     int t_TO = 44;
     int t_CASE = 45;
-    int t_LITERAL = 46;
 
 }

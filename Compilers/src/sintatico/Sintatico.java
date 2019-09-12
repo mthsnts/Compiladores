@@ -31,6 +31,10 @@ public class Sintatico {
 
             if(symbols.pilhaVazia() || isTerminal(stackTop)){
                 if(stackTop == inputTop){
+                    if(stackTop == Constants.DOLLAR){
+                        System.out.println("ANÁLISE SINTATICA FINALIZADA COM SUCESSO");
+                        break;
+                    }
                     System.out.println("Desempilhado da matriz de simbolos " + stackTop + " desempilhado da matriz entrada " + inputTop);
                     symbols.desempilhar();
                     inputStack.desempilhar();
@@ -49,11 +53,15 @@ public class Sintatico {
                         symbols.empilhar(productionRules[i]);
                     }
                 }else {
+                    for (int i = 0; i < symbols.pilha.length; i++){
+                        System.out.println("  " + symbols.pilha[i] + " - " + inputStack.pilha[i]);
+                    }
                     System.out.println("Não encontrado na matriz de parse " + stackTop + " - " + inputTop);
                     System.out.println(ParserConstants.PARSER_ERROR[stackTop]);
                     break;
                 }
             }
+
         } while (!symbols.pilhaVazia());
     }
 

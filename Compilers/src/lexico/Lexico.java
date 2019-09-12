@@ -1,5 +1,7 @@
 package lexico;
 
+import sintatico.Constants;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -29,23 +31,32 @@ public class Lexico {
         }
 
         // Palavras reservadas
-        reserve(new ConstantesTerminais("PROGRAM", Codigo.PROGRAM.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("VAR", Codigo.VAR.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("PROCEDURE", Codigo.PROCEDURE.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("END", Codigo.END.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("AND", Codigo.AND.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("OR", Codigo.OR.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("BEGIN", Codigo.BEGIN.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("INTEGER", Codigo.INTEIRO.value, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("PROGRAM", Constants.t_PROGRAM, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("VAR", Constants.t_VAR, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("PROCEDURE", Constants.t_PROCEDURE, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("END", Constants.t_END, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("AND", Constants.t_AND, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("OR", Constants.t_OR, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("BEGIN", Constants.t_BEGIN, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("INTEGER", Constants.t_INTEGER, PALAVRA_RESERVADA));
         reserve(new ConstantesTerminais("LIT", Codigo.LIT.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("IF", Codigo.IF.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("THEN", Codigo.THEN.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("ELSE", Codigo.ELSE.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("DO", Codigo.DO.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("CALL", Codigo.CALL.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("WHILE", Codigo.WHILE.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("READLN", Codigo.READLN.value, PALAVRA_RESERVADA));
-        reserve(new ConstantesTerminais("WRITELN", Codigo.WRITELN.value, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("IF", Constants.t_IF, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("THEN", Constants.t_THEN, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("ELSE", Constants.t_ELSE, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("DO", Constants.t_DO, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("CALL", Constants.t_CALL, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("WHILE", Constants.t_WHILE, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("READLN", Constants.t_READLN, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("WRITELN", Constants.t_WRITELN, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("NOT", Constants.t_NOT, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("AND", Codigo.AND.value, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("REPEAT", Constants.t_REPEAT, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("UNTIL", Constants.t_UNTIL, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("FOR", Constants.t_FOR, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("TO", Constants.t_TO, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("CASE", Constants.t_CASE, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("OF", Constants.t_OF, PALAVRA_RESERVADA));
+        reserve(new ConstantesTerminais("CONST", Constants.t_CONST, PALAVRA_RESERVADA));
     }
 
     private void readch() throws IOException {
@@ -111,6 +122,9 @@ public class Lexico {
                 // Operadores
                 case '|':
                     if (readch('|')) return ConstantesTerminais.OR;
+                    else return erroLexico();
+                case '.':
+                    if (readch('.')) return ConstantesTerminais.PONTO;
                     else return erroLexico();
                 case ':':
                     if (readch('='))
@@ -198,7 +212,7 @@ public class Lexico {
                     }
                     str = str + ch;
                     readch();
-                    return new ConstantesTerminais(str, Codigo.LIT.value);
+                    return new ConstantesTerminais(str, Constants.t_LITERAL);
                 }
                 case '/': {
                     readch();
@@ -237,7 +251,7 @@ public class Lexico {
             String s = sb.toString();
             ConstantesTerminais w = (ConstantesTerminais) words.get(s.toUpperCase());
             if (w != null) return w; // ja existe na hashtable ou é uma palabra reservada
-            w = new ConstantesTerminais(s, Codigo.ID.value, "Identificador");
+            w = new ConstantesTerminais(s, Constants.t_IDENT, "Identificador");
             words.put(s, w);
             return w;
         }

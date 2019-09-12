@@ -4,11 +4,13 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/compilador/Compilador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/compilador/Compilador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilers/lexico/ConstantesTerminais.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/lexico/ConstantesTerminais.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compilers/lexico/Lexico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/lexico/Lexico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilers/sintatico/ParserConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sintatico/ParserConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilers/sintatico/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sintatico/Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compilers/sintatico/Sintatico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilers/sintatico/Sintatico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sintatico/ParserConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sintatico/ParserConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexico/ConstantesTerminais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexico/ConstantesTerminais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexico/Lexico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexico/Lexico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sintatico/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sintatico/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sintatico/Sintatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sintatico/Sintatico.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,6 +89,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Trabalho LMS - Lexico Funcionando/TrabalhoLMS/TrabalhoLMS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -201,6 +204,7 @@
       <workItem from="1568216391475" duration="2260000" />
       <workItem from="1568241241691" duration="8066000" />
       <workItem from="1568249614934" duration="1065000" />
+      <workItem from="1568252146504" duration="5983000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,12 @@
-program testeproc1;
-a = b;
- $
+Program testeproc1;
+Var  X, y, z :integer;
+Procedure P;
+Var  A :integer;
+Begin  Readln(a);
+If a=x then
+z:=z+x
+Else begin
+Z:=z-x;
+Call p;
+End;
+$
