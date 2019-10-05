@@ -1,9 +1,0 @@
-Program Exemplo1Funcional;
-   Var a,b:integer;
-Begin
-   Readln(a);
-   b:= 0;
-   b:= a+2;
-   Writeln(b,a);
-end;
-$;
