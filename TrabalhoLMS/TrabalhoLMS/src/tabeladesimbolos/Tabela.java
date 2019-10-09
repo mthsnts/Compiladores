@@ -22,9 +22,9 @@ public class Tabela {
             this.hashtable[index] = simbolo;
         else {
             Simbolo auxSimbolo = this.hashtable[index];
-            do {
+            while (this.hasProximo(auxSimbolo)) {
                 auxSimbolo = auxSimbolo.getProximo();
-            }while (this.hasProximo(auxSimbolo));
+            }
             auxSimbolo.setProximo(simbolo);
         }
     }
