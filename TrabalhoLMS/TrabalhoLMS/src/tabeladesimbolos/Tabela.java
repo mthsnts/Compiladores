@@ -16,6 +16,20 @@ public class Tabela {
         return hashVal;
     }
 
+    public void mostraConteudoTabela() {
+        for (Simbolo simbolo : this.hashtable) {
+            if (simbolo != null) {
+                System.out.println(simbolo.getNome() + " - " + "Próximo:  " + ( simbolo.getProximo() != null ? simbolo.getProximo().getNome() : null)  + " - " + simbolo.getCategoria() + " - " + simbolo.getGeralA() + " - " + simbolo.getGeralB() + " - " + simbolo.getNivel());
+
+                Simbolo proximo = simbolo.getProximo();
+                while (proximo != null) {
+                    System.out.println(simbolo.getNome() + " - " + "Próximo: " + simbolo.getProximo().getNome() + " - " + simbolo.getCategoria() + " - " + simbolo.getGeralA() + " - " + simbolo.getGeralB() + " - " + simbolo.getNivel());
+                    proximo = proximo.getProximo();
+                }
+            }
+        }
+    }
+
     public void adiciona(Simbolo simbolo) {
         index = this.hash(simbolo.getNome(), tableSize);
         if (isNullIndex(index))
@@ -29,25 +43,14 @@ public class Tabela {
         }
     }
 
-    public void remove(String simbolo) {
-        index = this.hash(simbolo, tableSize);
-        Simbolo simboloAtual = this.hashtable[index];
-
-        if (simboloAtual.getNome().equals(simbolo)) {
-            this.hashtable[index] = simboloAtual.getProximo();
-        } else {
-
-        }
-    }
-
     public boolean remover(Simbolo simbolo) {
-        int indexSimbolo = this.hash(simbolo.getNome(), this.tableSize);
+        int index = this.hash(simbolo.getNome(), this.tableSize);
 
-        Simbolo atual = hashtable[indexSimbolo];
+        Simbolo atual = hashtable[index];
         Simbolo proximo = atual.getProximo();
 
         if (proximo == null && atual.getNome().equals(simbolo.getNome())) {
-            hashtable[indexSimbolo] = null;
+            hashtable[index] = null;
             return true;
 
         } else if (proximo == null && !atual.getNome().equals(simbolo.getNome())) {
@@ -67,9 +70,14 @@ public class Tabela {
     }
 
     public Simbolo buscar(Simbolo simbolo) {
-        int indexSimbolo = this.hash(simbolo.getNome(), this.tableSize);
+        int index = this.hash(simbolo.getNome(), this.tableSize);
 
-        Simbolo busca = hashtable[indexSimbolo];
+        Simbolo busca = hashtable[index];
+
+        if (busca == null) {
+            System.out.println("Não foi encontrado o Símbolo \"" + simbolo.getNome());
+            return null;
+        }
 
         if (busca.getNome().equals(simbolo.getNome())) {
             return busca;
